@@ -26,14 +26,19 @@ def manage_conn():
                 print(a, end="<|>")
 
             print("\n")
+
+        elif command == "exit":
+            exit(0)
         
         else:
             args = command.split("<|>")
             request = args[-1]
             for element in args[0:-1]:
-                client_socket = all_clients[int(element)][0]
-                client_socket.send(request.encode())
-
+                try:
+                    client_socket = all_clients[int(element)][0]
+                    client_socket.send(request.encode())
+                except Exception as error:
+                    print("Some error ocurred:",error)
 
 def receiver(client, addr):
     while True:

