@@ -1,6 +1,6 @@
 ## Working
 + The program has basic socket functionalities.
-+ To server first listens to the IP and PORT provided by the user.
++ The server first listens to the IP and PORT provided by the user.
 + We may forward the port using services like ngrok.
 + When first client joins the server, the address is appended to a list called "client list", and new thread "Management Thread" is initiated which lets the user control the communication between clients
 + As new clients join, a new thread "Receiver Thread" is created to log the messages sent by the client and the outputs of requests which were sent by the user
