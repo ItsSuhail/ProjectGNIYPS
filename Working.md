@@ -15,7 +15,6 @@
           here 0 and 1 represent the index of A and B in the command list
 
 + If we have changed the server address to a new one, we may send a request to change the address to the latest one on the client side, to continue the communication.
-+ If for some reason the server gets shutdown, the client would continue to connect to the address which it would request over a URL
-  Example: if we host a server, and client A is connected to it. If the server is shutdown, the client will look for the address over a URL say xyz.com, and if it receives
-          an address, it would try to connect to it. So if our server gets shutdown, we may host another one, and we can write the server address over a URL (say xyz.com) so
-          that the client will get the new address and would connect to it.
++ If for some reason the server gets shutdown, the client would try to look for an address to connect to by requesting over a URL
+
+  Example: if we host a server, and client A is connected to it. If the server is shutdown, the client will look for the address by requesting over a URL say xyz.com, and if it finds an address, it would try to connect to it. So if our server gets shutdown, we may host another one, and we can write the server address over to the URL (say xyz.com) so that the client will get the new address and would then attempt to connect to it.
